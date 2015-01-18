@@ -1,8 +1,4 @@
-# getting_cleaning_data
-
-### Project
-
-Coursera / Getting and Cleaning Data
+# Coursera / Getting and Cleaning Data
 
 ### How the script works
  
@@ -17,25 +13,30 @@ Coursera / Getting and Cleaning Data
  
 #### Initial data table contains the following columns:
  
+ <i>
  acceleration_x<br/>
  acceleration_y<br/>
  acceleration_z<br/>
  angularvelocity_x<br/>
  angularvelocity_y<br/>
  angularvelocity_z<br/>
+ </i>
  
  where first three columns contain accelleration by axis and the last three -- angular velocity by axis.
  
 #### Processed data table contains the following columns:
- measurement       (acceleration or angularvelocity)<br/>
- axis              (x, y, z)<br/>
- mean              (mean of the measurement for the axis)<br/>
- standarddeviation (standard deviation of the measurement for the axis)<br/>
+
+<i>measurement</i>       (acceleration or angularvelocity)<br/>
+ <i>axis</i>              (x, y, z)<br/>
+ <i>mean</i>              (mean of the measurement for the axis)<br/>
+ <i>standarddeviation</i> (standard deviation of the measurement for the axis)<br/>
  
 ### How to run the script
  Script uses "data.table" library.
  Entry point is process_data() (which calls load_data(), processes and returns the resulting data table).
  Returned data table can be saved using, for example,
  
+ <b>
  dt <- process_data() <br/>
  write.table(dt, file = "data_set.txt", row.name=FALSE)
+ </b>
