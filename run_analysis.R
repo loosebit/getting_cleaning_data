@@ -86,6 +86,10 @@ process_data <- function() {
   dt
 }
 
-# this how we can process and output data to a file
-#write.table(process_data(), file = "data_set.txt", row.name=FALSE)
-
+run_analysis <- function(fileName) {
+  if (typeof(fileName) != "character" || nchar(gsub("(^[[:space:]]+|[[:space:]]+$)", "", fileName)) == 0) {
+    return ("Need file name. Aborting.")
+  }
+  dt <- process_data()
+  write.table(dt, file = fileName, row.name=FALSE) 
+}
