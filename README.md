@@ -14,29 +14,28 @@
 #### Initial data table contains the following columns:
  
  <i>
- acceleration_x<br/>
- acceleration_y<br/>
- acceleration_z<br/>
- angularvelocity_x<br/>
- angularvelocity_y<br/>
- angularvelocity_z<br/>
+ acceleration_x (double)<br/>
+ acceleration_y (double)<br/>
+ acceleration_z (double)<br/>
+ angularvelocity_x (double)<br/>
+ angularvelocity_y (double)<br/>
+ angularvelocity_z (double)<br/>
  </i>
  
  where first three columns contain accelleration by axis and the last three -- angular velocity by axis.
  
 #### Processed data table contains the following columns:
 
-<i>measurement</i>       (acceleration or angularvelocity)<br/>
- <i>axis</i>              (x, y, z)<br/>
- <i>mean</i>              (mean of the measurement for the axis)<br/>
- <i>standarddeviation</i> (standard deviation of the measurement for the axis)<br/>
+ <i>measurement</i>       (factor; levels: acceleration, angularvelocity)<br/>
+ <i>axis</i>              (factor; levels: x, y, z)<br/>
+ <i>mean</i>              (double; mean of the measurement for the axis)<br/>
+ <i>standarddeviation</i> (double; standard deviation of the measurement for the axis)<br/>
  
 ### How to run the script
  Script uses "data.table" library.
- Entry point is process_data() (which calls load_data(), processes and returns the resulting data table).
- Returned data table can be saved using, for example,
+ Entry point is run_analysis(), which loads and processes data and saves the resulting data table to a file specified by a parameter value (required) passed to run_analysis(). If not a string or an empty string is passed, the script prints an error message and exits (this check is not thorough).
  
  <b>
- dt <- process_data() <br/>
- write.table(dt, file = "data_set.txt", row.name=FALSE)
+ source("run_analysis.R")<br/>
+ run_analysis("data_set.txt")
  </b>
